@@ -1,20 +1,14 @@
 name 'gantbox'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'David Eugene Pratt'
+maintainer_email 'david@davideugenepratt.com'
 license 'All Rights Reserved'
 description 'Installs/Configures gantbox'
 long_description 'Installs/Configures gantbox'
-version '0.1.0'
+version '0.0.1'
 chef_version '>= 12.14' if respond_to?(:chef_version)
+supports 'ubuntu'
+supports 'centos'
+issues_url 'https://github.com/davideugenepratt/gantbox/issues'
+source_url 'https://github.com/davideugenepratt/gantbox'
 
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/gantbox/issues'
-
-# The `source_url` points to the development repository for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/gantbox'
+depends 'tomcat'

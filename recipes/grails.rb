@@ -1,20 +1,12 @@
 #
 # Cookbook:: gantbox
-# Recipe:: groovy
+# Recipe:: grails
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-include_recipe '::java'
+include_recipe '::groovy'
 
-package 'unzip' do
-  action :install
-end
-
-package 'zip' do
-  action :install
-end
-
-bash 'install groovy' do
+bash 'install grails' do
   users = []
 
   if node.read 'gantbox', 'node', 'users'
@@ -25,7 +17,7 @@ bash 'install groovy' do
     end
   end
   
-  groovyversion = node.read('gantbox', 'groovy', 'version') ? node['gantbox']['groovy']['version'] : ''
+  grailsversion = node.read('gantbox', 'grails', 'version') ? node['gantbox']['grails']['version'] : ''
 
   users.each do |username, _data|
     next unless Dir.exist? '/home/' + username
@@ -37,9 +29,7 @@ bash 'install groovy' do
     environment('HOME' => ::Dir.home(username), 'USER' => username)
 
     code <<-EOH
-      curl -s get.sdkman.io | bash
-      source "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install groovy #{groovyversion}
+      source "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install grails #{grailsversion}
     EOH
   end
 end
-

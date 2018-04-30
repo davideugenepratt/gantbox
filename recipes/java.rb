@@ -32,4 +32,8 @@ else
     end
   end
 
+  bash 'set java_home' do
+    code "echo export JAVA_HOME=/usr/lib/jvm/java-#{javaversion}-openjdk-amd64/jre >> /etc/environment"
+  end
+
 end

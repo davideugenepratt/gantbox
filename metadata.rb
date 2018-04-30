@@ -12,3 +12,6 @@ issues_url 'https://github.com/davideugenepratt/gantbox/issues'
 source_url 'https://github.com/davideugenepratt/gantbox'
 
 depends 'tomcat'
+depends 'apt'
+depends 'yum'
+depends 'firewall'

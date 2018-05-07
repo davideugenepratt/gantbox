@@ -24,7 +24,7 @@ template '/opt/tomcat_gant/conf/tomcat-users.xml' do
   owner 'tomcat_gant'
   group 'tomcat_gant'
   mode '600'
-  variables(:users => node['app']['max_cache_size'])
+  variables(:users => tomcatusers)
 end
 
 tomcat_service 'gant' do
